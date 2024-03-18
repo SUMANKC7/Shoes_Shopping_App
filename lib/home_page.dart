@@ -1,4 +1,9 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:shop_app/global_variable.dart';
+import 'package:shop_app/product_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -61,16 +66,20 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.all(16),
                     child: GestureDetector(
                       onTap: () {
-                        selectedfilter = filter;
+                        setState(() {
+                          selectedfilter = filter;
+                        });
                       },
                       child: Chip(
-                        backgroundColor: selectedfilter == filter? Theme.of(context).colorScheme.primary:Colors.white ,
+                        backgroundColor: selectedfilter == filter
+                            ? Theme.of(context).colorScheme.primary
+                            : Colors.white,
                         label: Text(filter),
                         labelStyle: const TextStyle(
                           fontSize: 16,
                         ),
                         side: const BorderSide(
-                          color: Color.fromARGB(26, 168, 161, 161),
+                          color: Color.fromARGB(26, 194, 189, 189),
                         ),
                         padding: const EdgeInsets.symmetric(
                             horizontal: 20, vertical: 15),
@@ -79,6 +88,19 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   );
+                },
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: products.length,
+                itemBuilder: (context, index) {
+                  final product = products[index];
+                  return  ProductCard(title: product["title"] as String,
+                  price: product["price"] as double,
+                  image: product["imageUrl"] as String,
+                  backgroundColor: index.isEven ? const Color.fromRGBO(216, 240, 253, 1):
+                  Color.fromARGB(255, 247, 246, 246),);
                 },
               ),
             ),

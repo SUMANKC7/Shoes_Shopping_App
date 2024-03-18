@@ -15,16 +15,29 @@ class MyApp extends StatelessWidget {
       title: "Shoes App",
       theme: ThemeData(
           fontFamily: "Lato",
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow),
-          primaryColor:  Colors.yellow,
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 253, 236, 83),
+          primary: const Color.fromARGB(255, 253, 236, 83)
+          ),
+         
           inputDecorationTheme:const InputDecorationTheme(
             hintStyle: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16,
             ),
             prefixIconColor: Color.fromARGB(255, 148, 145, 145),
-          )),
-      home: HomePage(),
+          ),
+          textTheme:const TextTheme(
+            titleMedium: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              ),
+              bodySmall:TextStyle(
+                fontWeight: FontWeight.w900,
+                fontSize: 20,
+              ), 
+          ),
+          ),
+      home: const HomePage(),
     );
   }
 }
