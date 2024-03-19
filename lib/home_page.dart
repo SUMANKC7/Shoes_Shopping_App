@@ -1,7 +1,7 @@
-import 'dart:ffi';
+
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:shop_app/global_variable.dart';
 import 'package:shop_app/product_card.dart';
 
@@ -30,19 +30,16 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Column(
           children: [
-            const Row(
+             Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding:const EdgeInsets.all(20.0),
                   child: Text(
                     "Shoes\nCollection",
-                    style: TextStyle(
-                        fontFamily: "Lato",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 33),
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
-                Expanded(
+              const  Expanded(
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: "Search",
@@ -100,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                   price: product["price"] as double,
                   image: product["imageUrl"] as String,
                   backgroundColor: index.isEven ? const Color.fromRGBO(216, 240, 253, 1):
-                  Color.fromARGB(255, 247, 246, 246),);
+                 const Color.fromARGB(255, 247, 246, 246),);
                 },
               ),
             ),

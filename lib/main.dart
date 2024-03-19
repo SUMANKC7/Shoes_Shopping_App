@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/global_variable.dart';
 import 'package:shop_app/home_page.dart';
+import 'package:shop_app/product_detail_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +20,11 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 253, 236, 83),
           primary: const Color.fromARGB(255, 253, 236, 83)
           ),
+          appBarTheme:const  AppBarTheme(
+            titleTextStyle: TextStyle(
+              fontSize:20,color: Colors.black 
+            )
+          ),
          
           inputDecorationTheme:const InputDecorationTheme(
             hintStyle: TextStyle(
@@ -27,6 +34,10 @@ class MyApp extends StatelessWidget {
             prefixIconColor: Color.fromARGB(255, 148, 145, 145),
           ),
           textTheme:const TextTheme(
+            titleLarge: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 35,
+            ),
             titleMedium: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,
@@ -37,7 +48,9 @@ class MyApp extends StatelessWidget {
               ), 
           ),
           ),
-      home: const HomePage(),
+      home:  ProductDetailPage(
+        product: products[0],
+      ),
     );
   }
 }
