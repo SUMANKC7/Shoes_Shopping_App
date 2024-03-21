@@ -21,7 +21,7 @@ class _ProductListState extends State<ProductList> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery.sizeOf(context);
     const border = OutlineInputBorder(
         borderSide: BorderSide(color: Color.fromARGB(255, 214, 214, 209)),
         borderRadius: BorderRadius.horizontal(left: Radius.circular(50)));
@@ -88,7 +88,7 @@ class _ProductListState extends State<ProductList> {
           ),
           
           Expanded(
-            child: size.width>650? 
+            child: size.width>920? 
             GridView.builder(
                 itemCount: products.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
