@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/cart_provider.dart';
+import 'package:shop_app/providers/cart_provider.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -54,7 +54,7 @@ class CartPage extends StatelessWidget {
                                     context
                                         .read<CartProvider>()
                                         .removeProduct(cartitem);
-                       //The upper and the commented are same but in shorter form
+                                    //The upper and the commented are same but in shorter form
                                     // Provider.of<CartProvider>(context,
                                     //         listen: false)
                                     //     .removeProduct(cartitem);
